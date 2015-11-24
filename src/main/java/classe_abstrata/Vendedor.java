@@ -1,5 +1,7 @@
 package classe_abstrata;
 
+import java.lang.reflect.Field;
+
 public class Vendedor extends Funcionario {
 
 	private int comissao;
@@ -22,4 +24,13 @@ public class Vendedor extends Funcionario {
 		this.comissao = comissao;
 	}
 
+	public static void main(String[] args) throws Exception {
+		Class<?> c = Vendedor.class;
+		Object object = c.getConstructor(new Class[] {}).newInstance();
+		Field field = c.getDeclaredField("salarioBase");
+		field.setAccessible(true);
+		field.set(object, 5000.0);
+		System.out.println(((Vendedor) object).getSalarioBase());
+
+	}
 }

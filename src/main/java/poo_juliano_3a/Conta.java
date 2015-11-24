@@ -3,10 +3,10 @@ package poo_juliano_3a;
 public class Conta {
 	private String nome;
 	private String cpf;
-	private double saldo;	
-	
+	private double saldo;
+
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -14,7 +14,7 @@ public class Conta {
 	}
 
 	public String getCpf() {
-		return cpf;
+		return this.cpf;
 	}
 
 	public void setCpf(String cpf) {
@@ -28,28 +28,31 @@ public class Conta {
 	public Conta(String nome, String cpf, double saldo) {
 		this.nome = nome;
 		this.cpf = cpf;
-		this.saldo = saldo;
+		this.deposita(saldo);
 	}
 
-	public void saca(double valor){
-		if ((this.saldo > 0) && (this.saldo > valor) ){
+	public void saca(double valor) {
+		if ((this.saldo > 0) && (this.saldo > valor)) {
 			this.saldo -= valor;
-		} else System.out.println("Falha ao realizar o saque.\nPossíveis causas: valor inválido ou saldo insuficiente.");
+		} else {
+			System.out.println("Falha ao realizar o saque.\nPossíveis causas: valor inválido ou saldo insuficiente.");
+		}
 	}
-	
-	public void deposita(double valor){
-		if (valor > 0) { 
+
+	public void deposita(double valor) {
+		if (valor > 0) {
 			this.saldo += valor;
-		} else System.out.println("Valores negativos não são permitidos para depósitos.");
+		} else {
+			System.out.println("Valores negativos não são permitidos para depósitos.");
+		}
 	}
 
 	public double getSaldo() {
 		return this.saldo;
 	}
-	
-	public void imprimeSaldo(){
+
+	public void imprimeSaldo() {
 		System.out.println(this.getSaldo());
 	}
 
 }
-
