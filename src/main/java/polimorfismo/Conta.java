@@ -36,7 +36,7 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta (numero=" + this.numero + ", nome=" + this.nome + ", saldo=" + this.saldo + ")";
+		return "Conta do " + this.nome + "(" + this.numero + ") com o saldo de " + this.saldo + " reais.";
 	}
 
 	public double getSaldo() {
